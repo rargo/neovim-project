@@ -282,6 +282,12 @@ M.switch_project = function(dir)
   else
     M.load_session(dir)
   end
+
+  local config = require("neovim-project.config")
+  if config.options.on_project_load then
+    --print("execute neovim-project config.options.on_project_load()");
+    config.options.on_project_load()
+  end
 end
 
 M.init = function()
